@@ -64,7 +64,7 @@ ADD --link AmberTools24.tar.bz2 .
 RUN cd amber24_src && ./update_amber --update
 COPY --chown=1000:1000 run_cmake_injected /amber/amber24_src/build/
 RUN cd amber24_src/build && ./run_cmake_injected
-RUN cd amber24_src/build && make install -j24
+RUN cd amber24_src/build && make install -j12
 
 FROM nvidia/cuda:${BASE_IMAGE_CUDA_VERSION}-runtime-ubuntu${BASE_IMAGE_UBUNTU_VERSION} AS final
 COPY --from=complier /amber/amber24/ /amber/amber24/
