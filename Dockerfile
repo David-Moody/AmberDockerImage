@@ -63,7 +63,7 @@ ADD --link Amber24.tar.bz2 .
 ADD --link AmberTools24.tar.bz2 .
 RUN cd amber24_src && ./update_amber --update
 COPY --chown=1000:1000 run_cmake_injected /amber/amber24_src/build/
-RUN chmod +x run_cmake_injected
+RUN chmod +x amber24_src/build/run_cmake_injected
 RUN cd amber24_src/build && ./run_cmake_injected
 RUN cd amber24_src/build && make install -j12
 
